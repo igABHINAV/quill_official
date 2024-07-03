@@ -14,7 +14,6 @@ import { Download } from "lucide-react";
 
 // JSON data to be displayed in the editor
 const jsonData = [
-  
   {
     id: "25f557ae-a415-4559-ae93-cbedd088a431",
     type: "heading",
@@ -33,7 +32,6 @@ const jsonData = [
     ],
     children: [],
   },
-  
   {
     id: "fc3d3704-589e-4b9c-8608-499f56c90967",
     type: "paragraph",
@@ -51,17 +49,16 @@ const jsonData = [
     ],
     children: [],
   },
-  
 ];
 
 // Main Page component
 export default function Editor() {
   // Creates a new editor instance with the JSON data as initial content
-  const editor = useCreateBlockNote({ initialContent: jsonData });
+  const editor = useCreateBlockNote();
 
   const handleDownload = async () => {
     const input = document.querySelector('.item');
-    if (input) {
+    if (input && input instanceof HTMLElement) { // Ensure input is an HTMLElement
       const canvas = await html2canvas(input);
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF();
@@ -78,9 +75,8 @@ export default function Editor() {
       <div className={"item"}>
         <BlockNoteView editor={editor} />
       </div>
-      <div className="py-4 mx-4 flex justify-between ">
-
-      <Button  variant="default" onClick={handleDownload}>Download as PDF <Download/></Button>
+      <div className="py-4 mx-4 flex justify-between">
+        <Button variant="default" onClick={handleDownload}>Download as PDF <Download/></Button>
       </div>
     </div>
   );
