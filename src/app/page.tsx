@@ -20,7 +20,7 @@ export default function Home() {
         </h1>
         <p className='mt-5 max-w-prose text-zinc-700 sm:text-lg'>
           Quill allows you to create notes side by side with any
-          PDF document. Simply upload your file and start
+          PDF document. Simply upload your file ( upto 32MB ) and start
           writing.
         </p>
 
