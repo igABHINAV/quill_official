@@ -20,6 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light">
+      <head>
+      <meta name="google-adsense-account" content="ca-pub-6034584058469073"></meta>
+      </head>
       <Providers>
         <body
           className={cn(
@@ -32,6 +35,7 @@ export default function RootLayout({
           {children}
         </body>
       </Providers>
+      
     </html>
   );
 }
